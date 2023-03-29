@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
+    <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+    <title>Document</title>
+    <py-env>
+        - Pillow
+        - paths:
+        - sentence-transformers
+        - numpy
+        - pandas
+        - scikit-learn
+        - sklearn.model_selection       
+        - sklearn.naive_bayes       
+        - sklearn.feature_extraction 
+    </py-env>
+</head>
+<body>
+    <main class="container h-screen flex flex-col items-center justify-center">
+    <py-script src="./videoDetector.py" defer>
+        <py-script>
+            from pyodide.http import pyfetch
+            response = await pyfetch("C:\Users\andre\lqiox-lc4rr\NFT\Code_files_from_GitHub\Modded_Version_of_NFT_Generator")
+            if response.status == 200:
+                with open("<output_file>", "wb") as f:
+                    f.write(await response.bytes())
+    </py-script>
+</body>
+</html>
